@@ -36,6 +36,7 @@ body {
     margin: 0;
     display: grid;
     grid-template: 1fr auto / 1fr;
+    margin-bottom: 4rem;
     .conversation {
         grid-template: min-content / 1fr;
         margin: 1.5rem 5px;
@@ -44,8 +45,9 @@ body {
         .message {
             position: relative;
             display: grid;
-            grid-template: 4rem / 1fr 1fr;
+            grid-template: 4rem / 4rem 1fr;
             padding: 10px;
+            gap: 10px;
             border-radius: 10px;
             width: calc(100% - 4rem);
             .profile {
@@ -56,6 +58,9 @@ body {
             .text {
                 align-self: center;
                 margin: auto 0 auto auto;
+                word-wrap: wrap;
+                overflow: hidden;
+                word-break: break-all;
             }
             .name {
                 position: absolute;
@@ -69,6 +74,7 @@ body {
         .message.self {
             background-color: var(--self);
             margin: auto 0 auto auto;
+            grid-template: 4rem / 1fr 4rem;
             .profile {
                 order: 1;
                 margin-left: auto;
