@@ -1,0 +1,120 @@
+:root {
+    --theme: #339933;
+    --self: #d0ffd0;
+    --other: #ffe7d5;
+}
+
+@font-face {
+    font-family: "Default";
+    src: url("Quicksand-VariableFont_wght.ttf") format("truetype-variations");
+}
+
+body {
+    font-family: "Default", sans-serif;
+    font-weight: 500;
+    margin: 0;
+    background-color: #444;
+}
+
+.bar {
+    background-color: var(--theme);
+    padding: 0.7rem;
+    box-shadow: 0px 1px 3px #00000099;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    .title {
+        color: white;
+        margin: 0;
+        font-size: 1.3rem;
+        font-family: "Default", sans-serif;
+        font-weight: 400;
+    }
+}
+
+.container {
+    margin: 0;
+    display: grid;
+    grid-template: 1fr auto / 1fr;
+    .conversation {
+        grid-template: min-content / 1fr;
+        margin: 1.5rem 5px;
+        display: grid;
+        gap: 1.3rem;
+        .message {
+            position: relative;
+            display: grid;
+            grid-template: 4rem / 1fr 1fr;
+            padding: 10px;
+            border-radius: 10px;
+            width: calc(100% - 4rem);
+            .profile {
+                height: 100%;
+                border-radius: 10px;
+                backdrop-filter: brightness(0.9);
+            }
+            .text {
+                align-self: center;
+                margin: auto 0 auto auto;
+            }
+            .name {
+                position: absolute;
+                background-color: white;
+                top: -1rem;
+                left: 10px;
+                padding: 0.1rem 0.3rem;
+                border-radius: 10px;
+            }
+        }
+        .message.self {
+            background-color: var(--self);
+            margin: auto 0 auto auto;
+            .profile {
+                order: 1;
+                margin-left: auto;
+            }
+            .text {
+                align-self: center;
+                margin: auto auto auto 0;
+            }
+            .name {
+                left: calc(100% - 4rem - 10px);
+            }
+        }
+        .message.other {
+            background-color: var(--other);
+        }
+    }
+
+    .input-container {
+        position: fixed;
+        bottom: 10px;
+        background-color: white;
+        display: grid;
+        padding: 10px;
+        border-radius: 10px;
+        grid-template: 1fr / 9fr 1fr;
+        width: calc(100% - 40px);
+        left: 10px;
+        gap: 0.3rem;
+        .input {
+            border: none;
+            font-size: 1.3rem;
+            border-bottom: 3px dotted rgba(0, 0, 0, 0.3);
+        }
+        .input:focus {
+            outline: none;
+            border-bottom: 3px dotted rgba(0, 0, 0, 1);
+        }
+        .send {
+            margin: 0;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            background-color: var(--theme);
+            color: white;
+            height: 2.5rem;
+            margin: auto 0;
+        }
+    }
+}
