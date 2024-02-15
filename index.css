@@ -9,6 +9,11 @@
     src: url("Quicksand-VariableFont_wght.ttf") format("truetype-variations");
 }
 
+.limiter {
+    max-width: 512px;
+    margin: 0 auto;
+}
+
 body {
     font-family: "Default", sans-serif;
     font-weight: 500;
@@ -58,7 +63,6 @@ body {
             .text {
                 align-self: center;
                 margin: auto 0 auto auto;
-                word-wrap: wrap;
                 overflow: hidden;
                 word-break: break-all;
             }
@@ -93,6 +97,7 @@ body {
     }
 
     .input-container {
+        max-width: 480px;
         position: fixed;
         bottom: 10px;
         background-color: white;
@@ -101,10 +106,13 @@ body {
         border-radius: 10px;
         grid-template: 1fr / 9fr 1fr;
         width: calc(100% - 40px);
-        left: 10px;
+        left: 50%;
+        bottom: 10px;
+        transform: translate(-50%, -10px);
         gap: 0.3rem;
         .input {
             border: none;
+            resize: none;
             font-size: 1.3rem;
             border-bottom: 3px dotted rgba(0, 0, 0, 0.3);
         }

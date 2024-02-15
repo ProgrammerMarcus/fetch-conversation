@@ -2,16 +2,24 @@
  * Time to generate and append a random message.
  */
 async function randomMessageOther() {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/comments/${document.querySelector(".conversation").children.length}`)
-    const data = await response.json()
+    let number = document.querySelector(".conversation").children.length + Math.ceil(Math.random() * 10)
+    let response = await fetch(`https://jsonplaceholder.typicode.com/comments/${number}`)
+    let data = await response.json()
     const target = document.querySelector(".conversation")
     let clone = document.querySelector("#template-msg").cloneNode(true).content
     clone.querySelector(".profile").src = `https://robohash.org/${document.querySelector(".conversation").children.length}.png`
-    clone.querySelector(".text").innerText = data.body.substring(90)
-    clone.querySelector(".name").innerText = data.email
+    console.log(data.body)
+    clone.querySelector(".text").textContent = data.body.substring(0, Math.ceil(70 * Math.random()))
+    clone.querySelector(".name").textContent = data.email
     clone.querySelector(".message").classList.add("other")
     target.appendChild(clone)
     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+    if (Math.random() > 0.5) {
+        setTimeout(randomMessageOther, Math.random() * 3000)
+        if (Math.random() > 0.1) {
+            setTimeout(randomMessageOther, Math.random() * 2000)
+        }
+    }
 }
 
 async function sendMessage(message) {

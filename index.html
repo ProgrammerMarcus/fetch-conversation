@@ -8,20 +8,22 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <header class="bar"><h1 class="title">Messages</h1></header>
-    <template id="template-msg">
-        <div class="message">
-            <span class="name">Name</span>
-            <img class="profile" src="https://robohash.org/ed.png" alt="Profile picture.">
-            <span class="text">Hello world!</span>
-        </div>
-    </template>
-    <main class="container">
-        <div class="conversation"></div>
-        <div class="input-container">
-            <textarea class="input" name="input" id="input" cols="30" rows="1" maxlength="70"></textarea>
-            <input type="button" value="Send" class="send">
-        </div>
-    </main>
+    <div class="limiter">
+        <header class="bar"><h1 class="title">Messages</h1></header>
+        <template id="template-msg">
+            <div class="message">
+                <span class="name">Name</span>
+                <img class="profile" src="https://robohash.org/ed.png" alt="Profile picture.">
+                <span class="text">Hello world!</span>
+            </div>
+        </template>
+        <main class="container">
+            <div class="conversation"></div>
+            <div class="input-container">
+                <textarea class="input" name="input" id="input" cols="30" rows="1" maxlength="70"></textarea>
+                <input type="button" value="Send" class="send">
+            </div>
+        </main>
+    </div>
 </body>
 </html>
